@@ -90,13 +90,7 @@ SMTP_USER=your.email@gmail.com
 SMTP_PASS=your_app_password
 ```
 
-## Docker Support
-1. Add your `.env` files to `client` and `server` as above.
-2. Build and run with Docker Compose:
-   ```bash
-   docker-compose -f docker-compose.prod.yml build
-   docker-compose -f docker-compose.prod.yml up
-   ```
+
 
 ## Troubleshooting
 - For PDF/email issues, ensure `html-pdf` and `phantomjs-prebuilt` are installed and linked:
