@@ -2,7 +2,7 @@
 
 A modern, open-source MERN stack invoicing application for freelancers and small businesses.
 
-
+![Alt](DashBoard.png)
 
 ## Table of Contents
 - [Introduction](#introduction)
