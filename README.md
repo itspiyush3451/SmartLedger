@@ -1,180 +1,111 @@
-### [accountill.com](https://accountill.com/)
-# MERN Stack Invoicing Application
-Built with the MERN stack (MongoDB, Express, React and NodeJS).
-![Invoice](https://res.cloudinary.com/almpo/image/upload/v1637311386/invoice/invoice-app_tcz0dj.png)
+# SmartLedger
 
+A modern, open-source MERN stack invoicing application for freelancers and small businesses.
 
-## Update
-I am pleased to inform you that the name of this repository has been changed from Arc Invoice to Accountill.
-There are so many things coming! Stay tuned!!
+![SmartLedger Dashboard](https://your-image-link.com/dashboard.png)
 
-
-Panshak
-----
-
-  * [Introduction](#introduction)
-  * [Key Features](#key-features)
-  * [Technologies used](#technologies-used)
-      - [Client](#client)
-      - [Server](#server)
-      - [Database](#database)
-  * [Configuration and Setup](#configuration-and-setup)
-  * [Troubleshooting](#troubleshooting)
-  * [Author](#author)
-  * [License](#license)
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Environment Variables](#environment-variables)
+- [Docker Support](#docker-support)
+- [Troubleshooting](#troubleshooting)
+- [License](#license)
 
 ## Introduction
-This is a side project I've been working on. A full stack invoicing application made using the MERN stack (MongoDB, Express, React & Nodejs), specially designed for freelancers and small businesses, but can be used for almost any type of business need. With this application, you can send beautiful invoices, receipts, estimates, quotes, bills etc to your clients. Jump right off the [Live App](https://accountill.com/) and start sending invoice or download the entire [Source code](https://github.com/Panshak/accountill) and run it on your server. This project is something I've been working on in my free time so I cannot be sure that everything will work out correctly. But I'll appreciate you if can report any issue.
+SmartLedger is a full-stack invoicing solution built with MongoDB, Express, React, and Node.js. It allows users to create, send, and manage invoices, receipts, estimates, and more. Designed for ease of use and flexibility, SmartLedger is perfect for freelancers, small businesses, and anyone needing a simple invoicing tool.
 
-![Invoice Dashboard](https://res.cloudinary.com/almpo/image/upload/v1637314504/invoice/dashboard_c5z0is.png)
+## Features
+- Create and send invoices, receipts, estimates, and quotations
+- Generate and email/download PDF documents
+- Track payment status and history
+- Partial payment support
+- Dashboard with statistics and recent activity
+- Multi-user registration and authentication (JWT & Google OAuth)
+- Email notifications via SMTP
 
-## Key Features
-- Send invoices, receipts, estimates, quotations and bills via email
-- Generate and send/download pdf invoices, receipts, estimates, quotations and bills via email
-- Set due date.
-- Automatic status change when payment record is added
-- Payment history section for each invoice with record about payment date, payment method and extra note.
-- Record partial payment of invoice.
-- Clean admin dashboard for displaying all invoice statistics including total amount received, total pending, recent payments, total invoice paid, total unpaid and partially paid invoices. 
-- Multiple user registration.
-- Authentication using jsonwebtoken (jwt) and Google auth
+## Tech Stack
+- **Frontend:** React, Redux, Material UI, Axios
+- **Backend:** Node.js, Express, Mongoose
+- **Database:** MongoDB
+- **Authentication:** JWT, Google OAuth
+- **PDF Generation:** html-pdf
+- **Email:** Nodemailer
 
+## Getting Started
+### Prerequisites
+- Node.js & npm
+- MongoDB (local or Atlas)
+- (Optional) Docker
 
-## Technologies used
-This project was created using the following technologies.
+### Installation
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/itspiyush3451/SmartLedger.git
+   cd SmartLedger
+   ```
+2. **Install dependencies:**
+   - Client:
+     ```bash
+     cd client
+     npm install
+     ```
+   - Server:
+     ```bash
+     cd ../server
+     npm install
+     ```
+3. **Set up environment variables:**
+   - See [Environment Variables](#environment-variables) below.
+4. **Start the development servers:**
+   - In one terminal:
+     ```bash
+     cd client
+     npm start
+     ```
+   - In another terminal:
+     ```bash
+     cd server
+     npm start
+     ```
 
-#### Client
-
-- React JS
-- Redux (for managing and centralizing application state)
-- React-router-dom (To handle routing)
-- Axios (for making api calls)
-- Material UI & CSS Module (for User Interface)
-- React simple Snackbar (To display success/error notifications)
-- Cloudinary (to allows users to upload their business logo)
-- Apex Charts (to display payment history)
-- React-google-login (To enable authentication using Google)
-
-#### Server
-
-- Express
-- Mongoose
-- JWT (For authentication)
-- bcryptjs (for data encryption)
-- Nodemailer (for sending invoice via email)
-- html-pdf (for generating invoice PDFs)
-
-#### Database
-MongoDB (MongoDB Atlas)
-
-## Configuration and Setup
-In order to run this project locally, simply fork and clone the repository or download as zip and unzip on your machine. 
-- Open the project in your prefered code editor.
-- Go to terminal -> New terminal (If you are using VS code)
-- Split your terminal into two (run the client on one terminal and the server on the other terminal)
-
-In the first terminal
-- cd client and create a .env file in the root of your client directory.
-- Supply the following credentials
-
+## Environment Variables
+### Client (`client/.env`):
 ```
-REACT_APP_GOOGLE_CLIENT_ID = 
-REACT_APP_API = http://localhost:5000
-REACT_APP_URL = http://localhost:3000
-
-```
-
-To get your Google ClientID for authentication, go to the [credential Page ](https://console.cloud.google.com/apis/credentials) (if you are new, then [create a new project first](https://console.cloud.google.com/projectcreate) and follow the following steps;
-
-- Click Create credentials > OAuth client ID.
-- Select the Web application type.
-- Name your OAuth client and click Create
-- Remember to provide your domain and redirect URL so that Google identifies the origin domain to which it can display the consent screen. In development, that is going to be `http://localhost:3000` and `http://localhost:3000/login`
-- Copy the Client ID and assign it to the variable `REACT_APP_GOOGLE_CLIENT_ID` in your .env file
-
-```
-$ cd client
-$ npm install (to install client-side dependencies)
-$ npm start (to start the client)
-```
-In the second terminal
-- cd server and create a .env file in the root of your server directory.
-- Supply the following credentials
-
-```
-DB_URL = 
-PORT = 5000
-SECRET = 
-SMTP_HOST = 
-SMTP_PORT = 
-SMTP_USER = 
-SMTP_PASS = 
-
+REACT_APP_GOOGLE_CLIENT_ID=your_google_client_id
+REACT_APP_API=http://localhost:5000
+REACT_APP_URL=http://localhost:3000
 ```
 
-Please follow [This tutorial](https://dev.to/dalalrohit/how-to-connect-to-mongodb-atlas-using-node-js-k9i) to create your mongoDB connection url, which you'll use as your DB_URL
+### Server (`server/.env`):
+```
+DB_URL=mongodb://localhost:27017/SmartLedger
+PORT=5000
+SECRET=your_jwt_secret
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your.email@gmail.com
+SMTP_PASS=your_app_password
+```
 
-```
-$ cd server
-$ npm install (to install server-side dependencies)
-& npm start (to start the server)
-```
+## Docker Support
+1. Add your `.env` files to `client` and `server` as above.
+2. Build and run with Docker Compose:
+   ```bash
+   docker-compose -f docker-compose.prod.yml build
+   docker-compose -f docker-compose.prod.yml up
+   ```
 
 ## Troubleshooting
-If you're getting error while trying to send or download PDF,
-please run the following in your server terminal.
-
-```
-$ npm install html-pdf -g
-$ npm link html-pdf
-$ npm link phantomjs-prebuilt
-```
-
-## Docker
-
-Using docker is simple. Just add the .env contextualized with the docker network.
-
-e.g:
-
-> goes to path "server/.env"
-```
-DB_URL = mongodb://mongo:27017/arch
-PORT = 5000
-SECRET = 
-SMTP_HOST = 
-SMTP_PORT = 
-SMTP_USER = 
-SMTP_PASS = 
-```
-> goes to path "client/.env"
-```
-REACT_APP_GOOGLE_CLIENT_ID = 
-REACT_APP_API = http://localhost:5000
-REACT_APP_URL = http://localhost
-```
-
-And run
-
-```
-docker-compose -f docker-compose.prod.yml build
-
-And then
-
-docker-compose -f docker-compose.prod.yml up
-```
-
-## Comment
-I intend to keep adding more features to this application, so if you like it, please give it a star, that will encourage me to 
-to keep improving the project.
-
-
-## Author
-
-- Twitter: [@panshak_](https://twitter.com/panshak_)
-- Github: [@panshak](https://github.com/panshak)
-- Linkedin: [@panshak](https://www.linkedin.com/in/panshak/)
-- Email: [@ipanshak](mailto:ipanshak@gmail.com)
+- For PDF/email issues, ensure `html-pdf` and `phantomjs-prebuilt` are installed and linked:
+  ```bash
+  npm install html-pdf -g
+  npm link html-pdf
+  npm link phantomjs-prebuilt
+  ```
+- Check your MongoDB and SMTP credentials if you encounter connection errors.
 
 ## License
-
-- This project is [MIT](https://github.com/Panshak/accountill/blob/master/LICENSE.md) licensed.
+SmartLedger is open-source and available under the [MIT License](LICENSE).
