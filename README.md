@@ -2,7 +2,7 @@
 
 A modern, open-source MERN stack invoicing application for freelancers and small businesses.
 
-![SmartLedger Dashboard](https://your-image-link.com/dashboard.png)
+
 
 ## Table of Contents
 - [Introduction](#introduction)
