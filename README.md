@@ -10,7 +10,6 @@ A modern, open-source MERN stack invoicing application for freelancers and small
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
 - [Environment Variables](#environment-variables)
-- [Docker Support](#docker-support)
 - [Troubleshooting](#troubleshooting)
 - [License](#license)
 
